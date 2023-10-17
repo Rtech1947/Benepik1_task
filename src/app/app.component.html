@@ -1,0 +1,21 @@
+<div class="dynamiCForm">
+    <h1 class="heading">Dynamic Form </h1>
+    <form #myForm = "ngForm">
+        <div *ngFor="let data of obtainedData; let i = index">
+            <label for="">{{data.field_name}}</label><span><i *ngIf="data.is_mandatory == 1" class="is_mandatory">*</i></span>
+            <input 
+                id="item-{{i}}"
+                class="inputField" 
+                type="{{data.field_type}}" 
+                name="{{data.field_name}}" 
+                placeholder="{{data.placeholder}}" 
+                required = "data.is_mandatory == 1 ? true : false"  
+                [(ngModel)]="i != 0 ? '' : selectedFileName"
+                
+            >
+            <label *ngIf="data.field_type == 'single_image'" for="image">upload</label>
+            <input *ngIf="data.field_type == 'single_image'"  type="file" id="image" (change)="onFileSelected($event)" hidden >
+        </div>
+        <button (click)="submitForm(myForm.value)">Submit</button>
+    </form>
+</div>

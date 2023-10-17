@@ -1,0 +1,15 @@
+.dynamiCForm{
+        margin: auto;
+        width: 50%;
+        border: 3px solid gray;
+        padding: 10px;
+}
+.inputField{
+    margin: 10px;
+}
+.heading{
+    text-align: center;
+}
+.is_mandatory{
+    color: red;
+}
